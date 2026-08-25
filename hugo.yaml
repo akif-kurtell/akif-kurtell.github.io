@@ -16,7 +16,7 @@ params:
   label:
     text: "Akif"
     icon: "/profil.png"
-    iconHeight: 35
+    iconHeight: 50
 
   homeInfoParams:
     Title: "Merhaba! 👋"
