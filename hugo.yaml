@@ -29,7 +29,7 @@ params:
 
   homeInfoParams:
     Title: "Merhaba! 👋"
-    Content: "Kişisel bloguma hoş geldiniz."
+    Content: "Merhaba! Ben Akif. Galatasaray Üniversitesi Matematik Bölümü 2. sınıf öğrencisiyim. Bu blogu lisans eğitimim boyunca hem bir portföy hem de yaşayan bir dijital arşiv olarak kullanmayı amaçlıyorum. Gerek akademik sürecimde gerekse günlük yaşantımda ilgimi çeken konuları, yaptığım araştırmaları ve ilginç bulduğum noktaları burada biriktiriyorum."
 
   socialIcons:
     - name: github
