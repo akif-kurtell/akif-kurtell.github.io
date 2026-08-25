@@ -13,4 +13,4 @@ Geliştirdiğim web mimarileri, veri analizi prototipleri ve üzerinde çalışt
 #### 📌 Teklifim
 * **Açıklama:** Kullanıcıların ihtiyaçlarına yönelik tersine pazar yeri modeli sunan, dinamik ilan ve teklif süreçlerini yöneten kapsamlı web platformu.
 * **Teknolojiler:** `Python` `Django` `HTML/CSS` `SQLite / PostgreSQL`
-* **Bağlantılar:** [GitHub Reposu](https://github.com/akif-kurtell)
+* **Bağlantılar:** [GitHub Reposu](https://github.com/akif-kurtell/teklifim12)
