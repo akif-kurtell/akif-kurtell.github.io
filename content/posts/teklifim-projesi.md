@@ -1,6 +1,6 @@
 ---
 title: "Django ile İlk Web Geliştirme Deneyimi: Teklifim Projesi"
-date: 2026-08-26
+date: 2026-08-20
 draft: false
 tags: ["Python", "Django", "Web Geliştirme", "Deneyim", "Projeler"]
 summary: "Lisans 1. sınıfta geliştirdiğimiz tersine pazar yeri mimarisine sahip Teklifim platformunun arkasındaki teknik yapı ve edindiğim deneyimler."
