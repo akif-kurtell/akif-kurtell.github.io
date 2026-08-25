@@ -17,9 +17,6 @@ menu:
     - name: Araştırmalarım
       url: /arastirmalarim/
       weight: 20
-    - name: 🔍 Arama
-      url: /search/
-      weight: 30
 
 params:
   label:

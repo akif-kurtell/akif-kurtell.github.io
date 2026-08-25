@@ -1,0 +1,57 @@
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            {{- $label_text := (.Site.Params.label.text | default .Site.Title) }}
+            {{- if .Site.Params.label.icon }}
+            {{- $img := resources.Get .Site.Params.label.icon }}
+            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
+                <img src="{{ .Site.Params.label.icon | absURL }}" alt="" aria-label="logo"
+                    height="{{- default "30" .Site.Params.label.iconHeight -}}">
+                {{- $label_text -}}
+            </a>
+            {{- else }}
+            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">{{- $label_text -}}</a>
+            {{- end }}
+            <div class="logo-switches">
+                {{- if (not .Site.Params.disableThemeToggle) }}
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                {{- end }}
+            </div>
+        </div>
+
+        <ul id="menu">
+            <li>
+                <form action="{{ "search/" | absLangURL }}" method="get" style="display: flex; align-items: center;">
+                    <input type="text" name="q" placeholder="Ara..." style="padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--theme); color: var(--primary); font-size: 14px; outline: none;">
+                </form>
+            </li>
+            {{- range .Site.Menus.main }}
+            {{- $menu_item_url := (cond (strings.HasPrefix .URL "http") .URL (.URL | absLangURL) ) }}
+            <li>
+                <a href="{{ $menu_item_url }}" title="{{ .Title | default .Name }}">
+                    <span>{{ .Name }}</span>
+                </a>
+            </li>
+            {{- end }}
+        </ul>
+    </nav>
+</header>
