@@ -1,9 +1,26 @@
-baseURL: 'https://kullaniciadiniz.github.io/'
+baseURL: 'https://akif-kurtell.github.io/'
 languageCode: 'tr-tr'
-title: 'Benim Blogum'
+title: 'Akif | Blog'
 theme: 'PaperMod'
+
+menu:
+  main:
+    - name: Hakkımda
+      url: /about/
+      weight: 10
+    - name: Araştırmalarım
+      url: /arastirmalarim/
+      weight: 20
 
 params:
   homeInfoParams:
     Title: "Merhaba! 👋"
     Content: "Kişisel bloguma hoş geldiniz."
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/akif-kurtell"
+
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowCodeCopyButtons: true
