@@ -3,7 +3,7 @@ title: "Django ile İlk Web Geliştirme Deneyimi: Teklifim Projesi"
 date: 2026-08-26
 draft: false
 tags: ["Python", "Django", "Web Geliştirme", "Deneyim", "Projeler"]
-summary: "Lisans 1. sınıfta yapay zeka araçlarından faydalanarak geliştirdiğimiz, düzenli mentorluk görüşmeleriyle kod hakimiyeti kazandığımız ilk web platformu projemin detayları."
+summary: "Lisans 1. sınıfta geliştirdiğimiz tersine pazar yeri mimarisine sahip Teklifim platformunun arkasındaki teknik yapı ve edindiğim deneyimler."
 ---
 
 Lisans 1. sınıfta aldığımız *Bilgisayar Programlama II* dersi kapsamında ekip arkadaşlarımla birlikte hayata geçirdiğimiz **Teklifim**, ilk kapsamlı web sitesi geliştirme deneyimim oldu.
