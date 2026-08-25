@@ -1,0 +1,9 @@
+baseURL: 'https://kullaniciadiniz.github.io/'
+languageCode: 'tr-tr'
+title: 'Benim Blogum'
+theme: 'PaperMod'
+
+params:
+  homeInfoParams:
+    Title: "Merhaba! 👋"
+    Content: "Kişisel bloguma hoş geldiniz."
