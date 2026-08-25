@@ -17,6 +17,9 @@ menu:
     - name: Araştırmalarım
       url: /arastirmalarim/
       weight: 20
+    - name: Projelerim
+      url: /projeler/
+      weight: 30
 
 params:
   label:
@@ -26,7 +29,7 @@ params:
 
   homeInfoParams:
     Title: "Merhaba! 👋"
-    Content: "Hoş geldiniz."
+    Content: "Kişisel bloguma hoş geldiniz."
 
   socialIcons:
     - name: github
@@ -36,6 +39,4 @@ params:
 
   ShowReadingTime: true
   ShowShareButtons: true
-  shareButtons: ["linkedin"]
-
   ShowCodeCopyButtons: true
