@@ -1,51 +1,53 @@
 ---
-title: "Django ile İlk Web Geliştirme Deneyimi: Teklifim Projesi"
-date: 2026-08-20
+title: "Django ile İlk Web Sitem: Teklifim Projesi ve Yaşadıklarımız"
+date: 2026-08-26
 draft: false
 tags: ["Python", "Django", "Web Geliştirme", "Deneyim", "Projeler"]
-summary: "Lisans 1. sınıfta geliştirdiğimiz tersine pazar yeri mimarisine sahip Teklifim platformunun arkasındaki teknik yapı ve edindiğim deneyimler."
+summary: "Lisans 1. sınıfta yapay zeka ile kod yazıp iki haftada bir hocamızın karşısında ter döktüğümüz, hatalarla boğuşup sonunda çalışan bir tersine pazar yeri çıkardığımız ilk web geliştirme serüvenim."
 ---
 
-Lisans 1. sınıfta aldığımız *Bilgisayar Programlama II* dersi kapsamında ekip arkadaşlarımla birlikte hayata geçirdiğimiz **Teklifim**, ilk kapsamlı web sitesi geliştirme deneyimim oldu.
+Üniversitede lisans 1. sınıfta aldığımız *Bilgisayar Programlama II* dersi kapsamında ekip arkadaşlarımla birlikte hayata geçirdiğimiz **Teklifim**, benim ilk web sitesi geliştirme deneyimimdi.
 
-Proje, temel olarak bir **Tersine Pazar Yeri (Reverse Marketplace)** modeline dayanıyor. Klasik e-ticaret sitelerindeki satıcının ürün listelediği yapının aksine; bu modelde kullanıcılar bir talep (ilan) açıyor, hizmet veya ürün sağlayıcılar ise bu talebe özel teklifler sunuyor.
-
----
-
-### Geliştirme Metodolojisi ve Değerlendirme Süreci
-
-Geliştirme aşamasında modern araçlardan ve yapay zeka destekli kodlama yöntemlerinden sıkça faydalandık. Ancak sürecin en öğretici kısmı, bu kodları projeye dahil ederken taşıdığımız sorumluluktu. İki haftada bir gerçekleşen mentorluk görüşmelerinde, projede yer alan her kod bloğunun işlevini ve mantığını detaylı şekilde açıklayabilmemiz gerekiyordu.
-
-Ders kapsamında iki yönlü bir değerlendirme kriteri bulunuyordu:
-* **Grup Performansı:** Taahhüt edilen modüllerin ve arayüz akışının hatasız bir şekilde çalışması.
-* **Bireysel Performans:** Rastgele seçilen kod blokları üzerinden mantıksal kavrayışın ve teorik altyapının sorgulanması.
-
-Başlangıçta terminal hatalarını çözmek, modüller arasındaki bağımlılıkları yönetmek ve Django'nun mimarisine adapte olmak zorlayıcıydı. Bireysel değerlendirmelerde ise özellikle üzerinde daha az durduğumuz detayların sorulması, sonraki haftalarda kod tabanına daha kapsamlı ve titiz yaklaşmamızı sağladı. Düzenli geri bildirimler sayesinde hataları daha sistematik ayıklamayı ve arka plandaki çalışma mantığını kavramayı başardık.
+Projenin temel mantığı **Tersine Pazar Yeri (Reverse Marketplace)** üzerine kuruluydu. Yani klasik e-ticaret sitelerindeki gibi satıcı ürün koyup alıcı seçmiyor; ihtiyacı olan kullanıcı bir talep (ilan) açıyor, hizmet veya ürün sağlayıcılar da bu ilana özel teklifler sunuyordu. Fikir çok güzeldi ama işin mutfağına girince süreç bizim için tam bir maceraya dönüştü.
 
 ---
 
-### İlk Geliştirme Deneyimi ve Kazanımlar
+### Yapay Zeka ile Kod Yazıp Bu Kodlardan Sorumlu Olmak
 
-Bu süreç, bir web uygulamasının sıfırdan nasıl ayağa kaldırıldığını görmemi sağladı. Hataları analiz edip düzeltmenin, yapılan değişikliklerin anında tarayıcıya yansımasının ve veritabanı yönetiminin pratik tarafı oldukça eğiticiydi.
+Açık konuşmak gerekirse geliştirme sürecinde epey zorlandık. Kodların büyük bir kısmını yapay zekaya yazdırıyorduk ama işin asıl zor kısmı burada başlıyordu: İki haftada bir mentör hocamızla düzenli görüşmelerimiz vardı ve yapay zekaya yazdırdığımız her satır kodun ne işe yaradığını ezbere değil, mantığıyla bilmekten sorumluyduk.
 
-Özellikle Django'nun yerleşik **Admin Paneli** sayesinde test kullanıcıları tanımlamak, yetkilendirmeleri yönetmek ve veritabanı tabloları üzerindeki ilişkileri doğrudan manipüle edebilmek, backend mimarisinin işleyişini somutlaştırmama yardımcı oldu.
+Değerlendirme sistemi iki aşamalıydı:
+1. **Grup Puanlaması:** O hafta taahhüt ettiğimiz özelliklerin ekranda hatasız ve tıkır tıkır çalışması gerekiyordu.
+2. **Bireysel Puanlama:** Hocamız projeden rastgele bir kod satırını açıp *"Bu burada ne yapıyor, mantığı ne?"* diye soruyordu.
+
+İlk etapta bu çalışma temposuna alışmak bizim için çok zor oldu. Terminalde sürekli kırmızı hata mesajlarıyla karşılaşıyor, bir yeri düzeltirken başka bir yeri bozuyorduk. Fakat zaman geçtikçe sistemi, Django'nun mantığını ve veritabanı ilişkilerini yavaş yavaş kavramaya başladık.
+
+Tabii bireysel puanlama kısmı her zaman istediğimiz gibi gitmiyordu. Murphy Kanunları devredeydi: Projede nereye çok çalışıp hazırlandıysak hocamız orayı hiç sormuyor; *"Burayı sormaz herhalde"* diye üstünkörü geçtiğimiz neredeyse her satırı nokta atışı bulup soruyordu! Her görüşmenin sonunda da hocamız bize esprili bir şekilde her zamankinden daha çok çalışmamız gerektiği yönünde telkinlerde bulunuyordu.
 
 ---
 
-### Teknik Yapı
+### Kodları Kurcalamak ve İlk Başarı Hissi
 
-* **Backend:** Python, Django (MVT mimarisi ve yerleşik kimlik doğrulama sistemi)
+Tüm bu stresin ve zorlukların yanında, bir şeyler üretmenin keyfini ilk kez bu kadar net hissettim. Kodları kurcalamak, saatlerce uğraştıran bir hatayı çözüp tarayıcıyı yenilediğinde anında düzeldiğini görmek inanılmaz tatmin ediciydi.
+
+Özellikle Django'nun yerleşik **Admin Paneli** ile oynamak favori aktivitem haline gelmişti. Kendi elimle test kullanıcıları açıyor, sonra admin panelinden o kullanıcıları silip rolleriyle oynuyor, veritabanına doğrudan müdahale edebilmenin rahatlığını yaşıyordum.
+
+---
+
+### Sistemde Neler Kullandık?
+
+* **Backend:** Python, Django (MVT yapısı ve yerleşik auth mekanizması)
 * **Frontend:** HTML, CSS, JavaScript
-* **Veritabanı:** SQLite (İlanlar, kullanıcılar ve teklifler arasındaki ilişkisel veri modelleri)
+* **Veritabanı:** SQLite (İlanlar, kullanıcılar ve teklifler arasındaki ilişkisel tablolar)
 
-Veritabanı düzeyinde bir ilana birden fazla teklif atanabilmesi (`ForeignKey`), teklif durumlarının (`Beklemede`, `Kabul Edildi`, `Reddedildi`) yönetimi ve kabul edilen teklif doğrultusunda diğer kayıtların durumunun güncellenmesi gibi iş mantıkları kurgulandı.
+Veritabanı tarafında bir ilana birden fazla teklifin gelebilmesi (`ForeignKey`), teklifin durumunun (`Beklemede`, `Kabul Edildi`, `Reddedildi`) güncellenmesi ve kabul edilen teklif dışındakilerin elenmesi gibi iş mantıklarını kurguladık.
 
 ---
 
 ### Sonuç
 
-Teklifim projesi; yalnızca çalışan bir kod üretmenin değil, kullanılan araçların mantığına hakim olmanın, metodolojik hata ayıklamanın ve bir projeyi baştan sona yönetmenin önemini gösteren değerli bir tecrübe oldu.
+Teklifim projesi, kod yazmanın sadece klavyeye basmaktan ibaret olmadığını; asıl meselenin mantığı kavramak, sistemli hata ayıklamak ve ne yaptığını bilmek olduğunu bana öğreten ilk ve en unutulmaz tecrübem oldu.
 
-Projenin kaynak kodlarını incelemek isterseniz GitHub reposuna göz atabilirsiniz:
+Projenin kaynak kodlarına ve neler yaptığımıza göz atmak isterseniz GitHub reposunu aşağıya bırakıyorum:
 
 👉 **[Teklifim GitHub Reposu](https://github.com/akif-kurtell/teklifim12)**
