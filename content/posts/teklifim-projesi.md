@@ -1,9 +1,8 @@
 ---
-title: "Django ile İlk Web Sitem: Teklifim Projesi ve Yaşadıklarımız"
-date: 2026-08-26
+title: "Django ile İlk Web Geliştirme Deneyimi: Teklifim Projesi"
+date: 2026-08-20
 draft: false
 tags: ["Python", "Django", "Web Geliştirme", "Deneyim", "Projeler"]
-summary: "Lisans 1. sınıfta yapay zeka ile kod yazıp iki haftada bir hocamızın karşısında ter döktüğümüz, hatalarla boğuşup sonunda çalışan bir tersine pazar yeri çıkardığımız ilk web geliştirme serüvenim."
 ---
 
 Üniversitede lisans 1. sınıfta aldığımız *Bilgisayar Programlama II* dersi kapsamında ekip arkadaşlarımla birlikte hayata geçirdiğimiz **Teklifim**, benim ilk web sitesi geliştirme deneyimimdi.
