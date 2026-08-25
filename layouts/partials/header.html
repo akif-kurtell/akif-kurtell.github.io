@@ -1,10 +1,11 @@
 <header class="header">
-    <nav class="nav">
-        <div class="logo">
+    <nav class="nav" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        
+        <!-- 1. SOL: Logo ve Profil İkonu -->
+        <div class="logo" style="flex: 1; display: flex; align-items: center;">
             {{- $label_text := (.Site.Params.label.text | default .Site.Title) }}
             {{- if .Site.Params.label.icon }}
-            {{- $img := resources.Get .Site.Params.label.icon }}
-            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
+            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)" style="display: flex; align-items: center; gap: 10px;">
                 <img src="{{ .Site.Params.label.icon | absURL }}" alt="" aria-label="logo"
                     height="{{- default "30" .Site.Params.label.iconHeight -}}">
                 {{- $label_text -}}
@@ -12,17 +13,35 @@
             {{- else }}
             <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">{{- $label_text -}}</a>
             {{- end }}
+        </div>
+
+        <!-- 2. ORTA: Geniş Arama Barı -->
+        <div style="flex: 1; display: flex; justify-content: center;">
+            <form action="{{ "search/" | absLangURL }}" method="get" style="width: 100%; max-width: 400px;">
+                <input type="text" name="q" placeholder="Yazılarda ara..." style="width: 100%; padding: 8px 16px; border-radius: 20px; border: 1px solid var(--border); background: var(--theme); color: var(--primary); font-size: 14px; outline: none; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+            </form>
+        </div>
+
+        <!-- 3. SAĞ: Menüler ve Gece/Gündüz Butonu -->
+        <div style="flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 20px;">
+            <ul id="menu" style="display: flex; list-style: none; margin: 0; padding: 0; gap: 15px;">
+                {{- range .Site.Menus.main }}
+                {{- $menu_item_url := (cond (strings.HasPrefix .URL "http") .URL (.URL | absLangURL) ) }}
+                <li>
+                    <a href="{{ $menu_item_url }}" title="{{ .Title | default .Name }}" style="font-weight: 500;">
+                        <span>{{ .Name }}</span>
+                    </a>
+                </li>
+                {{- end }}
+            </ul>
+            
             <div class="logo-switches">
                 {{- if (not .Site.Params.disableThemeToggle) }}
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
                         <line x1="12" y1="1" x2="12" y2="3"></line>
                         <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -37,21 +56,5 @@
                 {{- end }}
             </div>
         </div>
-
-        <ul id="menu">
-            <li>
-                <form action="{{ "search/" | absLangURL }}" method="get" style="display: flex; align-items: center;">
-                    <input type="text" name="q" placeholder="Ara..." style="padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--theme); color: var(--primary); font-size: 14px; outline: none;">
-                </form>
-            </li>
-            {{- range .Site.Menus.main }}
-            {{- $menu_item_url := (cond (strings.HasPrefix .URL "http") .URL (.URL | absLangURL) ) }}
-            <li>
-                <a href="{{ $menu_item_url }}" title="{{ .Title | default .Name }}">
-                    <span>{{ .Name }}</span>
-                </a>
-            </li>
-            {{- end }}
-        </ul>
     </nav>
 </header>
