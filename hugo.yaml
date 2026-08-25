@@ -13,6 +13,11 @@ menu:
       weight: 20
 
 params:
+  label:
+    text: "Akif"
+    icon: "/profil.png"
+    iconHeight: 35
+
   homeInfoParams:
     Title: "Merhaba! 👋"
     Content: "Kişisel bloguma hoş geldiniz."
