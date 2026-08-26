@@ -1,11 +1,10 @@
 <header class="header">
-    <nav class="nav" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-        
-        <!-- 1. SOL: Logo ve Profil İkonu -->
-        <div class="logo" style="flex: 1; display: flex; align-items: center;">
+    <nav class="nav custom-nav">
+        <!-- 1. SOL: Logo ve Profil -->
+        <div class="logo-box">
             {{- $label_text := (.Site.Params.label.text | default .Site.Title) }}
             {{- if .Site.Params.label.icon }}
-            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)" style="display: flex; align-items: center; gap: 10px;">
+            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)" class="logo-link">
                 <img src="{{ .Site.Params.label.icon | absURL }}" alt="" aria-label="logo"
                     height="{{- default "30" .Site.Params.label.iconHeight -}}">
                 {{- $label_text -}}
@@ -15,20 +14,20 @@
             {{- end }}
         </div>
 
-        <!-- 2. ORTA: Geniş Arama Barı -->
-        <div style="flex: 1; display: flex; justify-content: center;">
-            <form action="{{ "search/" | absLangURL }}" method="get" style="width: 100%; max-width: 400px;">
-                <input type="text" name="q" placeholder="Yazılarda ara..." style="width: 100%; padding: 8px 16px; border-radius: 20px; border: 1px solid var(--border); background: var(--theme); color: var(--primary); font-size: 14px; outline: none; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+        <!-- 2. ORTA: Arama Barı -->
+        <div class="search-box">
+            <form action="{{ "search/" | absLangURL }}" method="get">
+                <input type="text" name="q" placeholder="Yazılarda ara..." class="search-input">
             </form>
         </div>
 
-        <!-- 3. SAĞ: Menüler ve Yalnızca Ay İkonlu Gece/Gündüz Butonu -->
-        <div style="flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 20px;">
-            <ul id="menu" style="display: flex; list-style: none; margin: 0; padding: 0; gap: 15px;">
+        <!-- 3. SAĞ: Menü ve Tema Butonu -->
+        <div class="menu-box">
+            <ul id="menu" class="menu-items">
                 {{- range .Site.Menus.main }}
                 {{- $menu_item_url := (cond (strings.HasPrefix .URL "http") .URL (.URL | absLangURL) ) }}
                 <li>
-                    <a href="{{ $menu_item_url }}" title="{{ .Title | default .Name }}" style="font-weight: 500;">
+                    <a href="{{ $menu_item_url }}" title="{{ .Title | default .Name }}">
                         <span>{{ .Name }}</span>
                     </a>
                 </li>
@@ -37,7 +36,7 @@
             
             <div class="logo-switches">
                 {{- if (not .Site.Params.disableThemeToggle) }}
-                <button id="theme-toggle" accesskey="t" title="Tema Değiştir (Alt + T)" style="background: none; border: none; cursor: pointer; display: flex; align-items: center; color: var(--primary); padding: 0;">
+                <button id="theme-toggle" accesskey="t" title="Tema Değiştir (Alt + T)" class="theme-btn">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>

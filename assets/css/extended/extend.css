@@ -1,0 +1,100 @@
+/* Masaüstü Genel Düzen */
+.custom-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.logo-box {
+    display: flex;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-box {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    min-width: 220px;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 380px;
+    padding: 7px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--theme);
+    color: var(--primary);
+    font-size: 14px;
+    outline: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.menu-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.menu-items {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 14px;
+}
+
+.theme-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: var(--primary);
+    padding: 0;
+}
+
+/* Mobil Cihazlar İçin Uyumluluk (Ekran genişliği 768px altı) */
+@media screen and (max-width: 768px) {
+    .custom-nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .logo-box {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .search-box {
+        width: 100%;
+        order: 3;
+    }
+
+    .search-input {
+        max-width: 100%;
+    }
+
+    .menu-box {
+        width: 100%;
+        justify-content: space-between;
+        order: 2;
+        overflow-x: auto;
+        padding-bottom: 4px;
+    }
+
+    .menu-items {
+        gap: 10px;
+        font-size: 14px;
+    }
+}
