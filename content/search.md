@@ -1,6 +1,6 @@
 ---
-title: "Arama"
+title: "Ara"
 layout: "search"
 summary: "search"
-placeholderText: "Yazılarda ve başlıklarda arayın..."
+placeholder: "Yazılarda, başlıklarda veya etiketlerde ara..."
 ---

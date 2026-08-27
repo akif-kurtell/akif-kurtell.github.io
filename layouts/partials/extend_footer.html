@@ -1,0 +1,17 @@
+<script>
+    // Üst bardan gönderilen arama sorgusunu (URL'deki ?q=...) arama sayfasına otomatik aktarır ve tetikler
+    window.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            const params = new URLSearchParams(window.location.search);
+            const query = params.get('q');
+            if (query) {
+                searchInput.value = query;
+                setTimeout(() => {
+                    searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+                    searchInput.dispatchEvent(new Event('keyup', { bubbles: true }));
+                }, 300);
+            }
+        }
+    });
+</script>
