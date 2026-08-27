@@ -1,29 +1,25 @@
 <header class="header">
-    <nav class="nav custom-nav">
-        <!-- 1. SOL: Logo ve Profil -->
-        <div class="logo-box">
+    <nav class="nav main-navbar">
+        <div class="nav-left">
             {{- $label_text := (.Site.Params.label.text | default .Site.Title) }}
             {{- if .Site.Params.label.icon }}
-            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)" class="logo-link">
-                <img src="{{ .Site.Params.label.icon | absURL }}" alt="" aria-label="logo"
-                    height="{{- default "30" .Site.Params.label.iconHeight -}}">
-                {{- $label_text -}}
+            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)" class="nav-brand">
+                <img src="{{ .Site.Params.label.icon | absURL }}" alt="logo" height="{{- default "30" .Site.Params.label.iconHeight -}}">
+                <span class="brand-text">{{- $label_text -}}</span>
             </a>
             {{- else }}
-            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">{{- $label_text -}}</a>
+            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)" class="nav-brand">{{- $label_text -}}</a>
             {{- end }}
         </div>
 
-        <!-- 2. ORTA: Arama Barı -->
-        <div class="search-box">
-            <form action="{{ "search/" | absLangURL }}" method="get">
-                <input type="text" name="q" placeholder="Yazılarda ara..." class="search-input">
+        <div class="nav-center">
+            <form action="{{ "search/" | absLangURL }}" method="get" class="search-form">
+                <input type="text" name="q" placeholder="Yazılarda ara..." class="search-box-input">
             </form>
         </div>
 
-        <!-- 3. SAĞ: Menü ve Tema Butonu -->
-        <div class="menu-box">
-            <ul id="menu" class="menu-items">
+        <div class="nav-right">
+            <ul id="menu" class="nav-links">
                 {{- range .Site.Menus.main }}
                 {{- $menu_item_url := (cond (strings.HasPrefix .URL "http") .URL (.URL | absLangURL) ) }}
                 <li>
@@ -33,11 +29,11 @@
                 </li>
                 {{- end }}
             </ul>
-            
+
             <div class="logo-switches">
                 {{- if (not .Site.Params.disableThemeToggle) }}
-                <button id="theme-toggle" accesskey="t" title="Tema Değiştir (Alt + T)" class="theme-btn">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <button id="theme-toggle" accesskey="t" title="Tema Değiştir (Alt + T)" class="theme-switch-btn">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
                 </button>
