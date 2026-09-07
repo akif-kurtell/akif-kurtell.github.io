@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mutlu Yıllar! 🎂</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle, #ffe6f0, #ffb3c6);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 24px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      text-align: center;
+      z-index: 10;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 10px 14px;
+      border: 2px solid #ff758f;
+      border-radius: 10px;
+      font-size: 16px;
+      width: 140px;
+      text-align: center;
+      outline: none;
+    }
+
+    button {
+      padding: 10px 18px;
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-left: 8px;
+      transition: 0.2s;
+    }
+
+    button:hover { background: #c9184a; }
+
+    /* PASTA ÇİZİMİ */
+    .cake-container {
+      position: relative;
+      width: 320px;
+      height: 240px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .candle-holder {
+      position: absolute;
+      top: 20px;
+      width: 220px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: flex-end;
+      z-index: 5;
+    }
+
+    .candle {
+      width: 10px;
+      height: 40px;
+      background: repeating-linear-gradient(45deg, #fff, #fff 4px, #ff4d6d 4px, #ff4d6d 8px);
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .flame {
+      width: 12px;
+      height: 18px;
+      background: orange;
+      border-radius: 50% 50% 20% 20%;
+      position: absolute;
+      top: -20px;
+      left: -1px;
+      box-shadow: 0 0 12px #ffba08, 0 0 20px #ffba08;
+      animation: flicker 0.2s infinite alternate;
+      transform-origin: bottom center;
+    }
+
+    .flame.off {
+      display: none;
+    }
+
+    @keyframes flicker {
+      0% { transform: scale(1) rotate(-2deg); }
+      100% { transform: scale(1.15) rotate(2deg); }
+    }
+
+    /* Pasta Katmanları */
+    .layer-top {
+      width: 240px;
+      height: 70px;
+      background: #ff758f;
+      border-radius: 20px 20px 8px 8px;
+      border-bottom: 8px solid #c9184a;
+    }
+
+    .layer-bottom {
+      width: 300px;
+      height: 90px;
+      background: #ffb3c6;
+      border-radius: 12px 12px 20px 20px;
+      border-bottom: 10px solid #a4133c;
+    }
+
+    .plate {
+      width: 340px;
+      height: 14px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #590d22;
+      display: none;
+      animation: pop 0.5s ease-out;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>🎂 Kaç Yaşındasın?</h2>
+    <input type="number" id="ageInput" placeholder="Örn: 5" min="1" max="50" value="3" />
+    <button onclick="pastayiHazirla()">Pastayı Hazırla</button>
+    <br/><br/>
+    <button id="micBtn" onclick="mikrofonBaslat()">🎤 Üfleyerek Söndür (Mikrofon)</button>
+    <button onclick="sondur()" style="background:#6c757d;">Elle Söndür 💨</button>
+  </div>
+
+  <div class="cake-container">
+    <div class="candle-holder" id="candleHolder"></div>
+    <div class="layer-top"></div>
+    <div class="layer-bottom"></div>
+    <div class="plate"></div>
+  </div>
+
+  <div id="message">🎉 İyi ki Doğdun! Dileğin Kabul Olsun! 🎈</div>
+
+  <!-- Konfeti Kütüphanesi -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    let flames = [];
+
+    function pastayiHazirla() {
+      const age = parseInt(document.getElementById('ageInput').value) || 1;
+      const candleHolder = document.getElementById('candleHolder');
+      const message = document.getElementById('message');
+      
+      candleHolder.innerHTML = '';
+      flames = [];
+      message.style.display = 'none';
+
+      // Girilen yaş kadar mum ekle (ekrana sığması için 30 ile sınırlandırabiliriz)
+      const count = Math.min(age, 30);
+
+      for (let i = 0; i < count; i++) {
+        const candle = document.createElement('div');
+        candle.className = 'candle';
+
+        const flame = document.createElement('div');
+        flame.className = 'flame';
+        candle.appendChild(flame);
+        candleHolder.appendChild(candle);
+        flames.push(flame);
+      }
+    }
+
+    function sondur() {
+      flames.forEach(flame => flame.classList.add('off'));
+      document.getElementById('message').style.display = 'block';
+
+      // Konfeti patlat
+      confetti({
+        particleCount: 120,
+        spread: 80,
+        origin: { y: 0.6 }
+      });
+    }
+
+    // Gerçek Üfleme Tespiti (Mikrofon Ses Seviyesi)
+    async function mikrofonBaslat() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const analyser = audioContext.createAnalyser();
+        const microphone = audioContext.createMediaStreamSource(stream);
+        microphone.connect(analyser);
+        analyser.fftSize = 256;
+
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+
+        alert("Mikrofon bağlandı! Şimdi telefonun/bilgisayarın mikrofonuna güçlüce üfle!");
+
+        function dinle() {
+          analyser.getByteFrequencyData(dataArray);
+          let sum = 0;
+          for (let i = 0; i < bufferLength; i++) {
+            sum += dataArray[i];
+          }
+          let average = sum / bufferLength;
+
+          // Üfleme sesi genelde ortalama ses seviyesini ani şekilde 50-60 üstüne çıkarır
+          if (average > 55) {
+            sondur();
+            stream.getTracks().forEach(track => track.stop()); // Mikrofonu kapat
+            return;
+          }
+          requestAnimationFrame(dinle);
+        }
+        dinle();
+      } catch (err) {
+        alert("Mikrofon izni verilmedi veya desteklenmiyor. 'Elle Söndür' butonunu kullanabilirsin.");
+      }
+    }
+
+    // İlk açılışta hazırla
+    pastayiHazirla();
+  </script>
+</body>
+</html>
