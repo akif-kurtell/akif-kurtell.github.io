@@ -6,7 +6,7 @@ summary: "İki taraflı katı tercih sıralamalarında kararlı eşleşme kuram�
 tags: ["matematik", "algoritmalar", "eslesme-teorisi", "mat231", "gale-shapley"]
 ---
 
-> **Çalışma Dokümanı:** Bu yazıya temel oluşturan tam metni ve biçimsel detayları incelemek için: [📄 PDF'i Aç (/Bayram_Akif_Kurtel_MAT231_ara_sınav.pdf)](/Bayram_Akif_Kurtel_MAT231_ara_sınav.pdf)
+> **Çalışma Dokümanı:** Bu yazıya temel oluşturan tam metni ve biçimsel detayları incelemek için: [📄 PDF'i Aç (/Gale-Shapley_Algoritması.pdf)](/Gale-Shapley_Algoritması.pdf)
 
 İki tarafın birbirine karşı katı tercih sıralamalarına sahip olduğu durumlarda nasıl "adil" ve bozulmaya dayanıklı bir eşleşme kurulur? İster üniversite kontenjanlarına aday yerleştirmekten ister iş piyasasındaki eşleşmelerden söz edelim, sezgisel görünen pek çok kural pratikte **kararsızlık** üretir: Bir adayın ve bir kurumun, mevcut eşleşmelerinden vazgeçip birbirini tercih etmesi sistemi baştan aşağı sarsar.
 
@@ -16,8 +16,8 @@ tags: ["matematik", "algoritmalar", "eslesme-teorisi", "mat231", "gale-shapley"]
 
 Modeli en yalın haliyle ele alalım: Ayrık iki kümemiz olsun; örneğin bir yanda adaylar/öğrenciler kümesi $A$, diğer yanda kurumlar/programlar kümesi $K$ ve her kurumun belirli bir kontenjanı $q_k \ge 1$ olsun.
 
-* Her aday $a \in A$, tercih edebileceği kurumları kendi içinde katı (berabere kalınmayan) bir sıraya dizer.
-* Her kurum $k \in K$, başvurabilecek adayları kendi içinde katı bir öncelik sırasına dizer.
+- Her aday $a \in A$, tercih edebileceği kurumları kendi içinde katı (berabere kalınmayan) bir sıraya dizer.
+- Her kurum $k \in K$, başvurabilecek adayları kendi içinde katı bir öncelik sırasına dizer.
 
 Bir eşleşmenin **kararlı (*stable*)** sayılması için şu iki koşulun sağlanması gerekir:
 
@@ -39,17 +39,17 @@ Bu mekanizmanın neden her zaman sonlandığını görmek kolaydır: Her adımda
 
 Gale-Shapley algoritmasını yalnızca pratik bir yordam olmaktan çıkarıp eşleşme teorisinin merkezine taşıyan üç temel sonuç vardır:
 
-* **Kararlılık Garantisi:** Algoritma bittiğinde oluşan eşleşme **her zaman kararlıdır**. Diyelim ki aday $a$, kendi eşleştiği kurumdan daha üstte yer alan bir $k$ kurumunu istiyor. Algoritmanın işleyişi gereği $a$, $k$'ya daha önce mutlaka başvurmuş olmalıdır. Eğer $k$ aday $a$'yı reddettiyse veya sonradan bıraktıysa, bunun tek nedeni $k$'nın $a$'dan daha yüksek öncelikli adaylarla kontenjanını doldurmuş olmasıdır. Dolayısıyla $k$, $a$'yı kendi mevcut adaylarına tercih etmez; engelleyici çift oluşamaz.
-* **Taraf Asimetrisi (Öneren vs. Kabul Eden):** Adayların teklif götürdüğü versiyonda algoritma, kararlı eşleşmeler kümesi içinde adaylar açısından **en iyi (optimal)**, kurumlar açısından ise **en kötü** kararlı eşleşmeyi üretir. Roller tersine çevrildiğinde (kurumların teklif/kabul inisiyatifi aldığı durumda) tablo tam tersine döner.
-* **Stratejik Davranış Sınırları:** Aday-önerili modelde adayların tercih sıralarını gizleyip manipüle etmesi genel olarak karşılıksız kalma veya daha kötü sonuç alma riski taşır; dürüst sıralama teorik olarak güçlü bir temel oluşturur.
+- **Kararlılık Garantisi:** Algoritma bittiğinde oluşan eşleşme **her zaman kararlıdır**. Diyelim ki aday $a$, kendi eşleştiği kurumdan daha üstte yer alan bir $k$ kurumunu istiyor. Algoritmanın işleyişi gereği $a$, $k$'ya daha önce mutlaka başvurmuş olmalıdır. Eğer $k$ aday $a$'yı reddettiyse veya sonradan bıraktıysa, bunun tek nedeni $k$'nın $a$'dan daha yüksek öncelikli adaylarla kontenjanını doldurmuş olmasıdır. Dolayısıyla $k$, $a$'yı kendi mevcut adaylarına tercih etmez; engelleyici çift oluşamaz.
+- **Taraf Asimetrisi (Öneren vs. Kabul Eden):** Adayların teklif götürdüğü versiyonda algoritma, kararlı eşleşmeler kümesi içinde adaylar açısından **en iyi (optimal)**, kurumlar açısından ise **en kötü** kararlı eşleşmeyi üretir. Roller tersine çevrildiğinde (kurumların teklif/kabul inisiyatifi aldığı durumda) tablo tam tersine döner.
+- **Stratejik Davranış Sınırları:** Aday-önerili modelde adayların tercih sıralarını gizleyip manipüle etmesi genel olarak karşılıksız kalma veya daha kötü sonuç alma riski taşır; dürüst sıralama teorik olarak güçlü bir temel oluşturur.
 
 ## 4. Okul ve Üniversite Yerleştirmede Karşılaşılan İnce Noktalar
 
 Gale-Shapley algoritması okul ve üniversite yerleştirme sistemlerine uyarlandığında kuramsal model ile sahadaki kurallar arasında dikkatli bir köprü kurmak gerekir:
 
-* **Kontenjan ve Öncelik Kuralları:** Üniversite veya lise yerleştirmelerinde "tercih" kavramı çoğu zaman öğrenci tarafında tanımlanırken, kurum tarafındaki sıralama merkezi sınav puanı, yerleştirme kriterleri veya özel kurallarla belirlenir.
-* **Bağlantı Kırma (*Tie-Breaking*):** Algoritma katı sıralamalar varsayar. Gerçek veride aynı puana veya aynı öncelik statüsüne sahip adaylar bulunduğunda, eşitliklerin nasıl bozulduğu (*tie-breaking*) hem adaleti hem de eşleşmenin yapısını etkiler.
-* **Kısıtlar ve Gerçek Dünya Sapmaları:** Kontenjanların sabit olmadığı, özel kontenjanların bulunduğu veya merkezi sistem dışında kalan tercihlerin işin içine girdiği senaryolarda kararlılık ve optimalite özelliklerinin hangilerinin korunduğunu ayrıca analiz etmek gerekir.
+- **Kontenjan ve Öncelik Kuralları:** Üniversite veya lise yerleştirmelerinde "tercih" kavramı çoğu zaman öğrenci tarafında tanımlanırken, kurum tarafındaki sıralama merkezi sınav puanı, yerleştirme kriterleri veya özel kurallarla belirlenir.
+- **Bağlantı Kırma (*Tie-Breaking*):** Algoritma katı sıralamalar varsayar. Gerçek veride aynı puana veya aynı öncelik statüsüne sahip adaylar bulunduğunda, eşitliklerin nasıl bozulduğu (*tie-breaking*) hem adaleti hem de eşleşmenin yapısını etkiler.
+- **Kısıtlar ve Gerçek Dünya Sapmaları:** Kontenjanların sabit olmadığı, özel kontenjanların bulunduğu veya merkezi sistem dışında kalan tercihlerin işin içine girdiği senaryolarda kararlılık ve optimalite özelliklerinin hangilerinin korunduğunu ayrıca analiz etmek gerekir.
 
 ## 5. Kapanış Notu
 
@@ -57,4 +57,4 @@ Gale-Shapley algoritması, kombinatoryal yapı ile iktisadi/sosyal mekanizma tas
 
 ---
 
-**Bağlantılar:** [📄 PDF'i Aç](/Bayram_Akif_Kurtel_MAT231_ara_sınav.pdf)
+**Bağlantılar:** [📄 PDF'i Aç](/Gale-Shapley_Algoritması.pdf)
